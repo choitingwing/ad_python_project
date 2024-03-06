@@ -27,6 +27,8 @@ docs/:   contain everything from sphinx
 
 New_code.ipynb:   a notebook that demonstrates how to use the package (no mpi)
 
+New_code.html:  a sample result from New_code.ipynb
+
 New_code.py:   a Python code that demonstrates how to use the package (with or without mpi)
 
 # How to use this repo
