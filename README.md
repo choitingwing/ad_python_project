@@ -1,3 +1,5 @@
+
+
 # Background
 In accelerator physics, particles are generated from some source before sending to an accelerator, or it is more like collecting the particles. Here, pions generated from a target are collected. To be able to collect them efficiently, we need to know the pion beam properties. In order to know that, we plot the pion data.
 
@@ -36,3 +38,11 @@ New_code.py:   a Python code that demonstrates how to use the package (with or w
 A. For New_code.ipynb, just open it and Run all or line by line.
 
 B. For New_code.py, do  `mpiexec python New_code.py`  in bash shell
+
+# Summary
+
+This is a good start for me to apply and learn advanced Python skills. I think I am becoming a better programmer now.
+
+For this program, there are possibilities to expand it with 3D plotting, x-y plotting and others. 
+
+Aiming to make plotting as easy as possible for researcher, avoiding all unnecessary steps in programming and figuring out how to use libraries.
