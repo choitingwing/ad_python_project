@@ -6,7 +6,7 @@ In accelerator physics, particles are generated from some source before sending 
 # Introduction
 Plotting data is always getting messy at the end.  
 
-In this project, I would like to transform my previously developed code. I aim to create a plotting generator for a specific type of data file by transforming your code into a Python library and optimising your code for speed/memory usage.  If you open old_code.html or old_code.ipynb, you can see how messy that is. Everything is explicitly coded inside one file, from loading data, calculations, and 2D and 3D plottings. I will try to transform the code by using everything I learned in the course.
+In this project, I would like to transform my previously developed code. I aim to create a plotting generator for some table-like data file by transforming the code into a Python library and optimising the code for speed/memory usage.  If you open old_code.html or old_code.ipynb, you can see how messy that is. Everything is explicitly coded inside one file, from loading data, calculations, and 2D and 3D plottings. I will try to transform the code by using everything I learned in the course.
 
 Things that improved:
 1. Using functions, packages and Modules.
