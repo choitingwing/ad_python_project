@@ -29,10 +29,6 @@ data_path = './data'
 # load data with function
 data, file_names = load_raw_data(data_path, mpi=True) # here file_names means the name of the files (name_of_files)
 
-# # close cores other than 0
-# if file_names==0:
-#     sys.exit()
-
 # or you can rename the file name here (make sure it can be writen as a file name):
 file_names = ['wo horn ', 'w horn ']
 for i, name in enumerate(file_names):
