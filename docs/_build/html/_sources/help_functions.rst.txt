@@ -1,0 +1,36 @@
+﻿help\_functions
+===============
+
+.. automodule:: help_functions
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      confidence_ellipse
+      get_histogram2d
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      FlowLayout
+   
+   
+
+   
+   
+   
+
+
+

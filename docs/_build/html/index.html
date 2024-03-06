@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Welcome to ad_py_pro’s documentation! &#8212; ad_py_pro 2024 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=514cf933" />
+    
+    <script src="_static/documentation_options.js?v=6fefd858"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">ad_py_pro 2024 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Welcome to ad_py_pro’s documentation!</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="welcome-to-ad-py-pro-s-documentation">
+<h1>Welcome to ad_py_pro’s documentation!<a class="headerlink" href="#welcome-to-ad-py-pro-s-documentation" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-data_processing_selection"></span><dl class="py function">
+<dt class="sig sig-object py" id="data_processing_selection.changing_data">
+<span class="sig-prename descclassname"><span class="pre">data_processing_selection.</span></span><span class="sig-name descname"><span class="pre">changing_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_maxmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta_maxmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.06</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#data_processing_selection.changing_data" title="Link to this definition">¶</a></dt>
+<dd><p>This function is to tranforming the original data column to the data column you want.
+It also served a transitional data to hold some data column which just for data selection until data selection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data: np.array</strong></dt><dd><p>original data</p>
+</dd>
+<dt><strong>r_maxmax: float</strong></dt><dd><p>just a value for the calculation you want, here it set the maxiumn radius
+theta_maxmax has the same function, you can add more.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>all_data: a numpy array/matrix</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">all_data</span> <span class="o">=</span> <span class="n">changing_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">r_maxmax</span><span class="p">,</span> <span class="n">theta_maxmax</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="data_processing_selection.generate_selected_data">
+<span class="sig-prename descclassname"><span class="pre">data_processing_selection.</span></span><span class="sig-name descname"><span class="pre">generate_selected_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#data_processing_selection.generate_selected_data" title="Link to this definition">¶</a></dt>
+<dd><p>This function is to generating data column with selection of data (fancing indexing).
+It also served a transitional data to hold some data column which just for data selection until data selection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>all_data: np.array</strong></dt><dd><p>original data/ changed data using the changing_data function</p>
+</dd>
+<dt><strong>cut_list: a list of TF array</strong></dt><dd><p>each element has the size of all_data</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>x_s_c, y_s_c, r_s_c, emission_angle_s_c, Px_s_c, Py_s_c, Pz_s_c, P_s_c, PDGid_s_c</strong><span class="classifier">float, x_s_c[number of cut][number of file]</span></dt><dd><p>len(x_s_c) is the number of cuts in cut_list, x_s_c is a list
+len(x_s_c[0]) is the number of file, x_s_c[0] is a list inside x_s_c
+x_s_c[0][0].shape is number of row in the column, np.array inside x_s_c[0]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x_s_c</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">P_s_c</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<span class="target" id="module-load_data_mpi"></span><dl class="py function">
+<dt class="sig sig-object py" id="load_data_mpi.load_raw_data">
+<span class="sig-prename descclassname"><span class="pre">load_data_mpi.</span></span><span class="sig-name descname"><span class="pre">load_raw_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mpi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#load_data_mpi.load_raw_data" title="Link to this definition">¶</a></dt>
+<dd><p>This file contain one function only.
+The load_raw_data function is used to load data from a directory using np.loadtxt, with or without mpi.</p>
+<p>Often loading massive data and with multiple files is slow, with multiple cores, one can load multiple data at the same time or even split your data</p>
+<p>If you use mpi, core 0 will do merging of data, other cores will load data from file evenly. 
+(except the last core will take one more per total number of core  if you have number of file more than total number of cores.)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data_path: directory where the data is located</strong></dt><dd></dd>
+<dt><strong>mpi: True/False</strong></dt><dd><p>True if you want to use mpi.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>data: a numpy array/matrix</dt><dd></dd>
+<dt>file_names:str array</dt><dd><p>the names of all files.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data_path</span> <span class="o">=</span> <span class="s1">&#39;./data&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="p">,</span> <span class="n">file_names</span> <span class="o">=</span> <span class="n">load_raw_data</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="p">,</span> <span class="n">file_names</span> <span class="o">=</span> <span class="n">load_raw_data</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">mpi</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<span class="target" id="module-help_functions"></span><dl class="py class">
+<dt class="sig sig-object py" id="help_functions.FlowLayout">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">help_functions.</span></span><span class="sig-name descname"><span class="pre">FlowLayout</span></span><a class="headerlink" href="#help_functions.FlowLayout" title="Link to this definition">¶</a></dt>
+<dd><p>A class / object to display plots in a horizontal / flow layout below a cell</p>
+<dl class="field-list">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><blockquote>
+<div></div></blockquote>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#help_functions.FlowLayout.add_plot" title="help_functions.FlowLayout.add_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_plot</span></code></a>(oAxes)</p></td>
+<td><p>Saves a PNG representation of a Matplotlib Axes object</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#help_functions.FlowLayout.PassHtmlToCell" title="help_functions.FlowLayout.PassHtmlToCell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PassHtmlToCell</span></code></a>()</p></td>
+<td><p>Final step - display the accumulated HTML</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="help_functions.FlowLayout.PassHtmlToCell">
+<span class="sig-name descname"><span class="pre">PassHtmlToCell</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#help_functions.FlowLayout.PassHtmlToCell" title="Link to this definition">¶</a></dt>
+<dd><p>Final step - display the accumulated HTML</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><blockquote>
+<div></div></blockquote>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"></dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="help_functions.FlowLayout.add_plot">
+<span class="sig-name descname"><span class="pre">add_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oAxes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#help_functions.FlowLayout.add_plot" title="Link to this definition">¶</a></dt>
+<dd><p>Saves a PNG representation of a Matplotlib Axes object</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><blockquote>
+<div></div></blockquote>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"></dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="help_functions.confidence_ellipse">
+<span class="sig-prename descclassname"><span class="pre">help_functions.</span></span><span class="sig-name descname"><span class="pre">confidence_ellipse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_std</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">facecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#help_functions.confidence_ellipse" title="Link to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://matplotlib.org/stable/gallery/statistics/confidence_ellipse.html">https://matplotlib.org/stable/gallery/statistics/confidence_ellipse.html</a></p>
+<p>Create a plot of the covariance confidence ellipse of <cite>x</cite> and <cite>y</cite></p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x, y</strong><span class="classifier">array_like, shape (n, )</span></dt><dd><p>Input data.</p>
+</dd>
+<dt><strong>ax</strong><span class="classifier">matplotlib.axes.Axes</span></dt><dd><p>The axes object to draw the ellipse into.</p>
+</dd>
+<dt><strong>n_std</strong><span class="classifier">float</span></dt><dd><p>The number of standard deviations to determine the ellipse’s radiuses.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>matplotlib.patches.Ellipse</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Other Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>kwargs</strong><span class="classifier"><cite>~matplotlib.patches.Patch</cite> properties</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="help_functions.get_histogram2d">
+<span class="sig-prename descclassname"><span class="pre">help_functions.</span></span><span class="sig-name descname"><span class="pre">get_histogram2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(None,</span> <span class="pre">None)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shading</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'flat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbi_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'orientation':</span> <span class="pre">'vertical'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hist2d.png'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(7,</span> <span class="pre">5)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#help_functions.get_histogram2d" title="Link to this definition">¶</a></dt>
+<dd><p>creates a 2d histogram</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x, y, z</strong></dt><dd><p>x and y coordinaten for z value, if z is None the 2d histogram of x and z is calculated</p>
+</dd>
+<dt><strong>numpy.histogram2d parameters:</strong></dt><dd><p>range : array_like, shape(2,2), optional
+bins : int or array_like or [int, int] or [array, array], optional</p>
+</dd>
+<dt><strong>ax1: mplt.axes</strong></dt><dd><p>if None (default) a olt.figure is created and histogram is stored
+if axis is give, the axis and a pcolormesh object is returned</p>
+</dd>
+<dt><strong>colorbar</strong><span class="classifier">dict</span></dt><dd></dd>
+<dt><strong>plt.pcolormesh parameters:</strong></dt><dd><p>clim=(vmin, vmax) : scalar, optional, default: clim=(None, None)
+shading : {‘flat’, ‘gouraud’}, optional</p>
+</dd>
+<dt><strong>normed: string</strong></dt><dd><p>colum, row, colum1, row1 (default: None)</p>
+</dd>
+<dt><strong>{x,y,c}scale: string</strong></dt><dd><p>‘linear’, ‘log’ (default: ‘linear’)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"></dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-plotting_1D"></span><dl class="py function">
+<dt class="sig sig-object py" id="plotting_1D.bin_gen_1D">
+<span class="sig-prename descclassname"><span class="pre">plotting_1D.</span></span><span class="sig-name descname"><span class="pre">bin_gen_1D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bin_min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_width</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plotting_1D.bin_gen_1D" title="Link to this definition">¶</a></dt>
+<dd><p>This is for bin boundaries generation of 1D data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>bin_min: float</strong></dt><dd><p>lowest bound</p>
+</dd>
+<dt><strong>bin_max: float</strong></dt><dd><p>highest bound</p>
+</dd>
+<dt><strong>bin_width: float</strong></dt><dd><p>bin width</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>bins: float</dt><dd><p>a numpy array/matrix</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bin_min</span><span class="p">,</span> <span class="n">bin_max</span><span class="p">,</span> <span class="n">bin_width</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bin_P</span> <span class="o">=</span> <span class="n">bin_gen_1D</span><span class="p">(</span><span class="n">bin_min</span><span class="p">,</span> <span class="n">bin_max</span><span class="p">,</span> <span class="n">bin_width</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="plotting_1D.plotting_1D_hist">
+<span class="sig-prename descclassname"><span class="pre">plotting_1D.</span></span><span class="sig-name descname"><span class="pre">plotting_1D_hist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hist_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_name_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plotting_1D.plotting_1D_hist" title="Link to this definition">¶</a></dt>
+<dd><p>This is for plotting 1D histogram on one physics quantity (column), but multiple files and selection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hist_data: float</strong></dt><dd><p>data shpae from generate_selected_data()</p>
+</dd>
+<dt><strong>bins: float np.array</strong></dt><dd><p>bins boundaries from bin_gen_1D</p>
+</dd>
+<dt><strong>figsize: (float, float)</strong></dt><dd></dd>
+<dt><strong>xlabel: string</strong></dt><dd></dd>
+<dt><strong>ylabel: string</strong></dt><dd></dd>
+<dt><strong>save_name: string</strong></dt><dd></dd>
+<dt><strong>title: string</strong></dt><dd></dd>
+<dt><strong>colors: string list</strong></dt><dd></dd>
+<dt><strong>fit: float</strong></dt><dd><p>0 - 1</p>
+</dd>
+<dt><strong>file_names: string list</strong></dt><dd><p>list of the files’ name</p>
+</dd>
+<dt><strong>cut_name_list: string list</strong></dt><dd><p>list of the name of the selection</p>
+</dd>
+<dt><strong>save: True/False</strong></dt><dd><p>save an image or not, default False</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>no return values</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xlabel</span> <span class="o">=</span> <span class="s1">&#39;P(MeV)&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ylabel</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39; N/</span><span class="si">{</span><span class="n">bin_width</span><span class="si">}</span><span class="s1"> MeV&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Momentrum distribution of pion with and w/o horn&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">save_name</span> <span class="o">=</span> <span class="n">image_path</span> <span class="o">+</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">_pion_momentum_dis.png&#39;</span> <span class="c1"># the name of the image if you save it.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fit</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># no confidence level fitting</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plotting_1D_hist</span><span class="p">(</span><span class="n">P_s_c</span><span class="p">,</span> <span class="n">bin_P</span><span class="p">,</span> <span class="n">figsize</span><span class="p">,</span> <span class="n">xlabel</span><span class="p">,</span> <span class="n">ylabel</span><span class="p">,</span> <span class="n">save_name</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> 
+<span class="go">                 colors, fit, file_names, cut_name_list, save=True)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="#">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Welcome to ad_py_pro’s documentation!</a><ul>
+<li><a class="reference internal" href="#data_processing_selection.changing_data"><code class="docutils literal notranslate"><span class="pre">changing_data()</span></code></a></li>
+<li><a class="reference internal" href="#data_processing_selection.generate_selected_data"><code class="docutils literal notranslate"><span class="pre">generate_selected_data()</span></code></a></li>
+<li><a class="reference internal" href="#load_data_mpi.load_raw_data"><code class="docutils literal notranslate"><span class="pre">load_raw_data()</span></code></a></li>
+<li><a class="reference internal" href="#help_functions.FlowLayout"><code class="docutils literal notranslate"><span class="pre">FlowLayout</span></code></a><ul>
+<li><a class="reference internal" href="#help_functions.FlowLayout.PassHtmlToCell"><code class="docutils literal notranslate"><span class="pre">FlowLayout.PassHtmlToCell()</span></code></a></li>
+<li><a class="reference internal" href="#help_functions.FlowLayout.add_plot"><code class="docutils literal notranslate"><span class="pre">FlowLayout.add_plot()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#help_functions.confidence_ellipse"><code class="docutils literal notranslate"><span class="pre">confidence_ellipse()</span></code></a></li>
+<li><a class="reference internal" href="#help_functions.get_histogram2d"><code class="docutils literal notranslate"><span class="pre">get_histogram2d()</span></code></a></li>
+<li><a class="reference internal" href="#plotting_1D.bin_gen_1D"><code class="docutils literal notranslate"><span class="pre">bin_gen_1D()</span></code></a></li>
+<li><a class="reference internal" href="#plotting_1D.plotting_1D_hist"><code class="docutils literal notranslate"><span class="pre">plotting_1D_hist()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">ad_py_pro 2024 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Welcome to ad_py_pro’s documentation!</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, Ting.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+﻿help\_functions.FlowLayout.add\_plot
+====================================
+
+.. currentmodule:: help_functions
+
+.. automethod:: FlowLayout.add_plot
