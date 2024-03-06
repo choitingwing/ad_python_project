@@ -28,4 +28,4 @@ New_code.py: a python code that domonstrate how to use the package (with or with
 
 A. For New_code.ipynb, just open it and Run all or line by line.
 
-B. For New_code.py, do " mpiexec python New_code.py " in bash shell
+B. For New_code.py, do  `mpiexec python New_code.py`  in bash shell
