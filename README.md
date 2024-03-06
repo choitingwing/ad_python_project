@@ -15,19 +15,19 @@ Things that improved:
 
 # Explaination of the files
 
-old code/: contain original plotting file
+old code/:   contain original plotting file
 
-data/: contain pions data
+data/:   contain pions data
 
-function_packages/: Module that I am using in my new code
+function_packages/:  a Module that I am using in my new code
 
-plots/: a file that contain all plots generated from the new code
+plots/:   a file that contain all plots generated from the new code
 
-docs/: contain everything from sphinx
+docs/:   contain everything from sphinx
 
-New_code.ipynb: a notebook that domonstrate how to use the package (no mpi)
+New_code.ipynb:   a notebook that demonstrates how to use the package (no mpi)
 
-New_code.py: a python code that domonstrate how to use the package (with or without mpi)
+New_code.py:   a Python code that demonstrates how to use the package (with or without mpi)
 
 # How to use this repo
 
