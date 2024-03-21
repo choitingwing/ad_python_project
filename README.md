@@ -12,7 +12,7 @@ Things that improved:
 1. Using functions, packages and Modules.
 2. Using docstring and sphinx
 3. Better use of fancy indexing to process data
-4. The possibility of using mpi to load data ( one core can load one file at the same time.)
+4. The possibility of using mpi to load data (cores can load one file each at the same time.)
 5. Better use of matplotlib
 
 # Explaination of the files
